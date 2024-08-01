@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 7</title>
+    <script>
+        function calcularSoma(){
+        const input = document.getElementById('inputNumbers').value;
+        const numbers = input.split(',').map(num=>parseInt(num.trim()));
+        const sum = numbers.filter(num=>num%2 !== 0 && num%3===0).reduce((acc,num) => acc + num, 0);
+        document.getElementById('outputSum').innerText = sum;
+        }
+    </script>
+</head>
+<body>
+    <h2>Soma dos Ímpares Múltiplos de Três</h2>
+    <input type="text" id="inputNumbers">
+    <button onclick="calcularSoma()">Calcular</button>
+    <p id="outputSum"></p>
+</body>
+</html>

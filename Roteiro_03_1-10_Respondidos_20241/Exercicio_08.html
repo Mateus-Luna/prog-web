@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 8</title>
+    <script>
+        function factorial(n) {
+            if (n === 0 || n === 1) {
+                return 1;
+            }
+            return n * factorial(n - 1);
+        }
+        function calculateFactorials() {
+            const input = document.getElementById('inputNumbers').value;
+            const numbers = input.split(',').map(num => parseInt(num.trim()));
+            const factorials = numbers.map(num => `${num}! = ${factorial(num)}`);
+            document.getElementById('outputFactorials').innerText = factorials.join(', ');
+        }
+    </script>
+</head>
+<body>
+    <h2>Calcular Fatoriais</h2>
+    <input type="text" id="inputNumbers">
+    <button onclick="calculateFactorials()">Calcular</button>
+    <p id="outputFactorials"></p>
+</body>
+</html>

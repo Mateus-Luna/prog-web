@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function inverterValores() {
+            const input = document.getElementById('inputNumbers').value;
+            const numbers = input.split(',').map(num => parseInt(num.trim()));
+            const reversed = numbers.reverse();
+            document.getElementById('outputReversed').innerText = reversed.join(', ');
+        }
+    </script>
+</head>
+<body>
+    <h2>Inverter Valores</h2>
+    <input type="text" id="inputNumbers">
+    <button onclick="inverterValores()">Inverter</button>
+    <p id="outputReversed"></p>
+</body>
+</html>

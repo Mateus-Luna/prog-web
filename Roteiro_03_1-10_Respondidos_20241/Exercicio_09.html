@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 9</title>
+    <script>
+        function calculaEstatisticas() {
+            const input = document.getElementById('inputNumbers').value;
+            const numbers = input.split(',').map(num => parseFloat(num.trim()));
+            const total = numbers.length;
+            const sum = numbers.reduce((acc, num) => acc + num, 0);
+            const avg = sum / total;
+    
+            const contadorPositivo = numbers.filter(num => num > 0).length;
+            const contadorNegativo = numbers.filter(num => num < 0).length;
+    
+            const pctPositiva = (contadorPositivo / total) * 100;
+            const pctNegativa = (contadorNegativo / total) * 100;
+    
+            const output = `
+                Média Aritmética: ${avg.toFixed(2)}<br>
+                Quantidade de Valores Positivos: ${contadorPositivo}<br>
+                Quantidade de Valores Negativos: ${contadorNegativo}<br>
+                Percentual de Valores Positivos: ${pctPositiva.toFixed(2)}%<br>
+                Percentual de Valores Negativos: ${pctNegativa.toFixed(2)}%
+            `;
+    
+            document.getElementById('outputStats').innerHTML = output;
+        }
+    
+    </script>
+</head>
+<body>
+    <h2>Estatísticas dos Valores</h2>
+    <input type="text" id="inputNumbers">
+    <button onclick="calculaEstatisticas()">Calcular</button>
+    <p id="outputStats"></p>
+</body>
+</html>
